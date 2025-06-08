@@ -27,7 +27,7 @@ class KtorAuctionAPI(private val client: HttpClient) : AuctionAPI {
         return try {
             client.get(API_URL) {
                 headers {
-                    append("x-api-key", "97uionf98y34oiuh3498pfy34hf43hfp9834hf9p83h4fg8ogq3hfph9348ofhiu")
+                    append("X-API-Key", "97uionf98y34oiuh3498pfy34hf43hfp9834hf9p83h4fg8ogq3hfph9348ofhiu")
                 }
             }.body()
         } catch (e: Exception) {
@@ -36,5 +36,5 @@ class KtorAuctionAPI(private val client: HttpClient) : AuctionAPI {
 
             emptyList()
         }
-    }
+        }
 }
