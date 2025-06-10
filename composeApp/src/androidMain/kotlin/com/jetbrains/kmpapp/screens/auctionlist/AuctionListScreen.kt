@@ -81,6 +81,7 @@ fun AuctionListItem(item: AuctionModelItem) {
             modifier = Modifier.padding(16.dp)
         ) {
             // Auction Image
+            Log.i("image_tg", "AuctionListItem: ${item.image?.thumbUrl}")
             item.image?.thumbUrl.let { imageUrl ->
                 Image(
                     painter = rememberAsyncImagePainter(imageUrl),
