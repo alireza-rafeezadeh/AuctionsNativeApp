@@ -1,4 +1,4 @@
-package com.jetbrains.kmpapp.screens.details
+package com.tbauctions.auctionsnativeapp.screens.details
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.rememberAsyncImagePainter
-import com.jetbrains.kmpapp.screens.auctionlist.AuctionListViewModel
+import com.tbauctions.auctionsnativeapp.screens.AuctionListViewModel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)

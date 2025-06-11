@@ -1,4 +1,4 @@
-package com.jetbrains.kmpapp.data.auction
+package com.tbauctions.auctionsnativeapp.data
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest package="com.tbauctions.auctionsnativeapp" xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,7 +14,7 @@
         <activity
             android:exported="true"
             android:windowSoftInputMode="adjustResize"
-            android:name=".MainActivity">
+            android:name=".AuctionsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

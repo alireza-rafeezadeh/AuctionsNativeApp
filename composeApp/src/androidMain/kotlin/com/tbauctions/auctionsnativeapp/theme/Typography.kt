@@ -1,4 +1,4 @@
-package com.jetbrains.kmpapp.ui.theme
+package com.tbauctions.auctionsnativeapp.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

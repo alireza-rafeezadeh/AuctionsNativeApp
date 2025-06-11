@@ -1,9 +1,9 @@
-package com.jetbrains.kmpapp.di
+package com.tbauctions.auctionsnativeapp.di
 
-import com.jetbrains.kmpapp.data.auction.AuctionAPI
-import com.jetbrains.kmpapp.data.auction.AuctionListRepository
-import com.jetbrains.kmpapp.data.auction.AuctionListRepositoryImpl
-import com.jetbrains.kmpapp.data.auction.KtorAuctionAPI
+import com.tbauctions.auctionsnativeapp.data.AuctionAPI
+import com.tbauctions.auctionsnativeapp.data.AuctionListRepository
+import com.tbauctions.auctionsnativeapp.data.AuctionListRepositoryImpl
+import com.tbauctions.auctionsnativeapp.data.KtorAuctionAPI
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.http.ContentType

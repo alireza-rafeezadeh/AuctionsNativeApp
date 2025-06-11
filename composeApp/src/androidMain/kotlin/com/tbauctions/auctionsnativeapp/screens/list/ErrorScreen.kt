@@ -1,4 +1,4 @@
-package com.jetbrains.kmpapp.screens.auctionlist
+package com.tbauctions.auctionsnativeapp.screens.list
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,8 +14,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
-import com.jetbrains.kmpapp.ui.theme.Dimens.PaddingLarge
-import com.jetbrains.kmpapp.ui.theme.Dimens.PaddingMedium
+import com.tbauctions.auctionsnativeapp.theme.Dimens.PaddingLarge
+import com.tbauctions.auctionsnativeapp.theme.Dimens.PaddingMedium
 
 @Composable
 fun ErrorScreen(

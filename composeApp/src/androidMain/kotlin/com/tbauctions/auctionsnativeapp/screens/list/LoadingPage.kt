@@ -1,4 +1,4 @@
-package com.jetbrains.kmpapp.screens.auctionlist
+package com.tbauctions.auctionsnativeapp.screens.list
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,9 +14,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.jetbrains.kmpapp.ui.theme.Dimens.IconSizeLarge
-import com.jetbrains.kmpapp.ui.theme.Dimens.PaddingLarge
-import com.jetbrains.kmpapp.ui.theme.Dimens.PaddingMedium
+import com.tbauctions.auctionsnativeapp.theme.Dimens.IconSizeLarge
+import com.tbauctions.auctionsnativeapp.theme.Dimens.PaddingLarge
+import com.tbauctions.auctionsnativeapp.theme.Dimens.PaddingMedium
 
 @Composable
 fun LoadingPage() {

@@ -1,6 +1,6 @@
 package com.jetbrains.kmpapp
 
-import com.jetbrains.kmpapp.data.auction.AuctionListRepository
+import com.tbauctions.auctionsnativeapp.data.AuctionListRepository
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 

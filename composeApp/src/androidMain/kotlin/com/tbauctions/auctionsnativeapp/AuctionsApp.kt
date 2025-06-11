@@ -1,8 +1,8 @@
-package com.jetbrains.kmpapp
+package com.tbauctions.auctionsnativeapp
 
 import android.app.Application
-import com.jetbrains.kmpapp.di.initKoin
-import com.jetbrains.kmpapp.screens.auctionlist.AuctionListViewModel
+import com.tbauctions.auctionsnativeapp.di.initKoin
+import com.tbauctions.auctionsnativeapp.screens.AuctionListViewModel
 import org.koin.dsl.module
 
 class AuctionsApp : Application() {

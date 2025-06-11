@@ -1,4 +1,4 @@
-package com.jetbrains.kmpapp.screens.auctionlist
+package com.tbauctions.auctionsnativeapp.screens.list
 
 import android.os.Build
 import android.util.Log
@@ -31,7 +31,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.rememberAsyncImagePainter
-import com.jetbrains.kmpapp.data.auction.AuctionModelItem
+import com.tbauctions.auctionsnativeapp.data.AuctionModelItem
+import com.tbauctions.auctionsnativeapp.screens.AuctionListViewModel
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 

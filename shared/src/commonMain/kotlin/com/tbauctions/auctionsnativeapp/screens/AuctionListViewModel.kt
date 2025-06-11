@@ -1,8 +1,8 @@
-package com.jetbrains.kmpapp.screens.auctionlist
+package com.tbauctions.auctionsnativeapp.screens
 
-import AuctionListUIState
-import com.jetbrains.kmpapp.data.auction.AuctionListRepository
-import com.jetbrains.kmpapp.data.auction.AuctionModelItem
+import com.tbauctions.auctionsnativeapp.data.AuctionListUIState
+import com.tbauctions.auctionsnativeapp.data.AuctionListRepository
+import com.tbauctions.auctionsnativeapp.data.AuctionModelItem
 import com.rickclephas.kmp.nativecoroutines.NativeCoroutinesState
 import com.rickclephas.kmp.observableviewmodel.ViewModel
 import com.rickclephas.kmp.observableviewmodel.launch

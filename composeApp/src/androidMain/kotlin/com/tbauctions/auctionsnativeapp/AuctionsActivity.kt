@@ -1,4 +1,4 @@
-package com.jetbrains.kmpapp
+package com.tbauctions.auctionsnativeapp
 
 import android.os.Build
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.LaunchedEffect
 
-class MainActivity : ComponentActivity() {
+class AuctionsActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

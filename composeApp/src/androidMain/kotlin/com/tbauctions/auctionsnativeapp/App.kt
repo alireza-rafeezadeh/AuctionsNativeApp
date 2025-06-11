@@ -1,4 +1,4 @@
-package com.jetbrains.kmpapp
+package com.tbauctions.auctionsnativeapp
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -12,9 +12,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.jetbrains.kmpapp.screens.auctionlist.AuctionListScreen
-import com.jetbrains.kmpapp.screens.auctionlist.AuctionListViewModel
-import com.jetbrains.kmpapp.screens.details.AuctionDetailScreen
+import com.tbauctions.auctionsnativeapp.screens.list.AuctionListScreen
+import com.tbauctions.auctionsnativeapp.screens.AuctionListViewModel
+import com.tbauctions.auctionsnativeapp.screens.details.AuctionDetailScreen
 import kotlinx.serialization.Serializable
 import org.koin.compose.viewmodel.koinViewModel
 

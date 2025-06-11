@@ -1,4 +1,4 @@
-import com.jetbrains.kmpapp.data.auction.AuctionModelItem
+package com.tbauctions.auctionsnativeapp.data
 
 data class AuctionListUIState(
     val isLoading: Boolean = false,

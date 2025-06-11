@@ -41,11 +41,11 @@ kotlin {
 }
 
 android {
-    namespace = "com.jetbrains.kmpapp"
+    namespace = "com.tbauctions.auctionsnativeapp"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.jetbrains.kmpapp"
+        applicationId = "com.tbauctions.auctionsnativeapp"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

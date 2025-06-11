@@ -1,4 +1,4 @@
-package com.jetbrains.kmpapp.ui.theme
+package com.tbauctions.auctionsnativeapp.theme
 
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp

@@ -1,4 +1,4 @@
-package com.jetbrains.kmpapp.data.auction
+package com.tbauctions.auctionsnativeapp.data
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
