@@ -13,4 +13,7 @@
     <string name="back">Back</string>
 
     <string name="no_data_available">No data available</string>
+    <string name="loading_message">Loading, please wait...</string>
+    <string name="retry_message">Retry</string>
+    <string name="auctions_title">Auction Listings</string>
 </resources>
