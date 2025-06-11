@@ -11,14 +11,19 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
 import com.jetbrains.kmpapp.screens.auctionlist.AuctionListScreen
+import com.jetbrains.kmpapp.screens.auctionlist.AuctionListViewModel
+import com.jetbrains.kmpapp.screens.details.AuctionDetailScreen
 import kotlinx.serialization.Serializable
+import org.koin.compose.viewmodel.koinViewModel
 
 @Serializable
-object ListDestination
+object AuctionListDestination
 
 @Serializable
-data class DetailDestination(val objectId: Int)
+data class AuctionDetailDestination(val objectId: Int)
+
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
@@ -26,14 +31,25 @@ fun App() {
     MaterialTheme(
         colorScheme = if (isSystemInDarkTheme()) darkColorScheme() else lightColorScheme()
     ) {
+        val auctionViewModel: AuctionListViewModel = koinViewModel()
+        val navController = rememberNavController()
+
         Surface {
-            val navController = rememberNavController()
-            NavHost(navController = navController, startDestination = ListDestination) {
-                composable<ListDestination> {
-//                    ListScreen(navigateToDetails = { objectId ->
-//                        navController.navigate(DetailDestination(objectId))
-//                    })
-                    AuctionListScreen()
+            NavHost(navController = navController, startDestination = AuctionListDestination) {
+                composable<AuctionListDestination> {
+
+                    AuctionListScreen(auctionViewModel, navigateToDetails = { objectId ->
+                        navController.navigate(AuctionDetailDestination(objectId))
+                    })
+                }
+
+                composable<AuctionDetailDestination> { backStackEntry ->
+                    AuctionDetailScreen(auctionViewModel,
+                        objectId = backStackEntry.toRoute<AuctionDetailDestination>().objectId,
+                        navigateBack = {
+                            navController.popBackStack()
+                        }
+                    )
                 }
 //                composable<DetailDestination> { backStackEntry ->
 //                    DetailScreen(

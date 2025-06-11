@@ -32,23 +32,24 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.rememberAsyncImagePainter
 import com.jetbrains.kmpapp.data.auction.AuctionModelItem
-import org.koin.androidx.compose.koinViewModel
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun AuctionListScreen() {
-    val auctionViewModel: AuctionListViewModel = koinViewModel()
+fun AuctionListScreen(
+    auctionViewModel: AuctionListViewModel,
+    navigateToDetails: (objectId: Int) -> Unit
+) {
     val auctionList by auctionViewModel.auctionList.collectAsStateWithLifecycle()
     Log.i("test_tg", "AuctionListScreen: ${auctionList}")
-    AuctionList(auctionList)
+    AuctionList(auctionList, navigateToDetails)
 }
 
 @RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AuctionList(auctionItems: List<AuctionModelItem>) {
+fun AuctionList(auctionItems: List<AuctionModelItem>, navigateToDetails: (objectId: Int) -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(title = { Text("Auction Listings") })
@@ -62,7 +63,7 @@ fun AuctionList(auctionItems: List<AuctionModelItem>) {
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(auctionItems) { item ->
-                AuctionListItem(item = item)
+                AuctionListItem(item = item, navigateToDetails)
             }
         }
     }
@@ -70,12 +71,15 @@ fun AuctionList(auctionItems: List<AuctionModelItem>) {
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun AuctionListItem(item: AuctionModelItem) {
+fun AuctionListItem(item: AuctionModelItem, navigateToDetails: (objectId: Int) -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .height(IntrinsicSize.Max), // Allows content to define height
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        onClick = {
+            navigateToDetails(item.id)
+        }
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
