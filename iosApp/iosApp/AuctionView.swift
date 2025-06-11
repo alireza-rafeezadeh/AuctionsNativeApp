@@ -20,14 +20,18 @@ struct AuctionView: View {
 //
 //        }
 //    }
-    
+
 
     var body: some View {
         NavigationView {
             ScrollView {
                 LazyVStack(spacing: 16) {
                     ForEach(viewModel.auctionList, id: \.self) { item in
-                        AuctionItemView(item: item)
+//                        NavigationLink(destination: AuctionDetailView(objectId: item.id),)
+                        NavigationLink(destination: AuctionDetailView(item: item), label: {
+                            AuctionItemView(item: item)
+                        })
+//                        AuctionItemView(item: item)
                     }
                 }
                 .padding()

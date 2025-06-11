@@ -18,6 +18,7 @@
 		EB50C4922BE0EB69005DE781 /* KMPNativeCoroutinesCore in Frameworks */ = {isa = PBXBuildFile; productRef = EB50C4912BE0EB69005DE781 /* KMPNativeCoroutinesCore */; };
 		EB50C4942BE0F0D8005DE781 /* KMPObservableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB50C4932BE0F0D8005DE781 /* KMPObservableViewModel.swift */; };
 		F1BB9C902DF9FC5400DFED68 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F1BB9C8F2DF9FC5400DFED68 /* Kingfisher */; };
+		F1BB9C922DFA045700DFED68 /* AuctionsDetailsVuew.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BB9C912DFA044B00DFED68 /* AuctionsDetailsVuew.swift */; };
 		F1FAFD102DF6444D00DE0564 /* AuctionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FAFD0F2DF6444600DE0564 /* AuctionView.swift */; };
 		F1FAFD122DF6521500DE0564 /* AuctionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FAFD112DF6520C00DE0564 /* AuctionItemView.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		AB3632DC29227652001CCB65 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		EB1C5CC62AE06906002852BE /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		EB50C4932BE0F0D8005DE781 /* KMPObservableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMPObservableViewModel.swift; sourceTree = "<group>"; };
+		F1BB9C912DFA044B00DFED68 /* AuctionsDetailsVuew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionsDetailsVuew.swift; sourceTree = "<group>"; };
 		F1FAFD0F2DF6444600DE0564 /* AuctionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionView.swift; sourceTree = "<group>"; };
 		F1FAFD112DF6520C00DE0564 /* AuctionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +90,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				F1BB9C912DFA044B00DFED68 /* AuctionsDetailsVuew.swift */,
 				F1FAFD112DF6520C00DE0564 /* AuctionItemView.swift */,
 				F1FAFD0F2DF6444600DE0564 /* AuctionView.swift */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
@@ -218,6 +221,7 @@
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				EB50C4942BE0F0D8005DE781 /* KMPObservableViewModel.swift in Sources */,
 				F1FAFD102DF6444D00DE0564 /* AuctionView.swift in Sources */,
+				F1BB9C922DFA045700DFED68 /* AuctionsDetailsVuew.swift in Sources */,
 				7555FF83242A565900829871 /* ListView.swift in Sources */,
 				F1FAFD122DF6521500DE0564 /* AuctionItemView.swift in Sources */,
 			);
