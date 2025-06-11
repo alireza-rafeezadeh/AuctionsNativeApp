@@ -9,6 +9,8 @@
 import SwiftUICore
 import SwiftUI
 import Shared
+import Kingfisher
+
 
 
 struct AuctionItemView: View {
@@ -17,23 +19,35 @@ struct AuctionItemView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             if let url = URL(string: item.image?.thumbUrl ?? "") {
-                AsyncImage(url: url) { phase in
-                    switch phase {
-                    case .empty:
-                        ProgressView()
-                            .frame(height: 200)
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(height: 200)
-                            .clipped()
-                    case .failure:
-                        Color.gray.frame(height: 200)
-                    @unknown default:
-                        EmptyView()
+//                AsyncImage(url: url) { phase in
+//                    switch phase {
+//                    case .empty:
+//                        ProgressView()
+//                            .frame(height: 200)
+//                    case .success(let image):
+//                        image
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fill)
+//                            .frame(height: 200)
+//                            .clipped()
+//                    case .failure:
+//                        Color.gray.frame(height: 200)
+//                    @unknown default:
+//                        EmptyView()
+//                    }
+//                }
+                
+                KFImage(URL(string: item.image?.thumbUrl ?? ""))
+                    .placeholder {
+                        ProgressView().frame(height: 200)
                     }
-                }
+                    .onFailure { error in
+                        print("Failed to load image: \(error)")
+                    }
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 200)
+                    .clipped()
             }
 
             Text(item.name)
