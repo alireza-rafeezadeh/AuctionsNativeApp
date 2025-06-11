@@ -1,10 +1,5 @@
 package com.jetbrains.kmpapp.di
 
-import com.jetbrains.kmpapp.data.InMemoryMuseumStorage
-import com.jetbrains.kmpapp.data.KtorMuseumApi
-import com.jetbrains.kmpapp.data.MuseumApi
-import com.jetbrains.kmpapp.data.MuseumRepository
-import com.jetbrains.kmpapp.data.MuseumStorage
 import com.jetbrains.kmpapp.data.auction.AuctionAPI
 import com.jetbrains.kmpapp.data.auction.AuctionListRepository
 import com.jetbrains.kmpapp.data.auction.AuctionListRepositoryImpl
@@ -26,15 +21,6 @@ val dataModule = module {
                 // TODO Fix API so it serves application/json
                 json(json, contentType = ContentType.Any)
             }
-        }
-    }
-
-    single<MuseumApi> { KtorMuseumApi(get()) }
-
-    single<MuseumStorage> { InMemoryMuseumStorage() }
-    single {
-        MuseumRepository(get(), get()).apply {
-            initialize()
         }
     }
 
