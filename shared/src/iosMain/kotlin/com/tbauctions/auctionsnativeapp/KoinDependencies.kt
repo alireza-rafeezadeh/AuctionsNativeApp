@@ -1,4 +1,4 @@
-package com.jetbrains.kmpapp
+package com.tbauctions.auctionsnativeapp
 
 import com.tbauctions.auctionsnativeapp.data.AuctionListRepository
 import org.koin.core.component.KoinComponent
