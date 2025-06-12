@@ -1,4 +1,4 @@
-# Auctiona Native App
+# Auctions Native App
 
 This is a Kotlin Multiplatform (KMP) project targeting **Android** and **iOS** showing a list of auctions and their details.
 
@@ -13,8 +13,6 @@ This is a Kotlin Multiplatform (KMP) project targeting **Android** and **iOS** s
 - [**Koin**](https://github.com/InsertKoinIO/koin): Dependency injection made easy and multiplatform.
 - [**KMP-ObservableViewModel**](https://github.com/rickclephas/KMP-ObservableViewModel): Shared ViewModel architecture usable with SwiftUI and Jetpack Compose.
 - [**KMP-NativeCoroutines**](https://github.com/rickclephas/KMP-NativeCoroutines): Enables Swift concurrency support for Kotlin coroutines.
-
-> ⚠️ These are just some of the possible libraries to use for these tasks with Kotlin Multiplatform, and their usage here isn't a strong recommendation for these specific libraries over the available alternatives. You can find a wide variety of curated multiplatform libraries in the [kmp-awesome](https://github.com/terrakok/kmp-awesome) repository.
 
 ---
 
@@ -39,3 +37,8 @@ To run the app, make sure to add your `AUCTIONS_API_KEY`:
 - **Android**: Add to your `local.properties` file:
   ```properties
   AUCTIONS_API_KEY=your_api_key_here
+- **iOS**: Add a line in `info.plist`:
+  ```properties
+  <key>AUCTIONS_API_KEY</key>
+  <string>your_api_key_here</string>
+  
