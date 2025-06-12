@@ -13,28 +13,52 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.tbauctions.auctionsnativeapp.data.AuctionListUIState
+import com.tbauctions.auctionsnativeapp.theme.Dimens.PaddingExtraSmall
+import com.tbauctions.auctionsnativeapp.theme.Dimens.PaddingSmall
+
 
 @RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AuctionList(auctionItems: AuctionListUIState, navigateToDetails: (objectId: Int) -> Unit) {
+fun AuctionList(
+    auctionListUIState: AuctionListUIState,
+    navigateToDetails: (objectId: Int) -> Unit
+) {
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Auction Listings") })
+            TopAppBar(title = { Text(text ="Auction Listings") })
         }
     ) { paddingValues ->
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .padding(horizontal = 8.dp, vertical = 4.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            items(auctionItems.auctionList) { item ->
-                AuctionListItem(item = item, navigateToDetails)
+
+        if (auctionListUIState.isLoading) {
+            LoadingPage()
+        } else {
+            if (auctionListUIState.errorMessage == null) {
+                if (auctionListUIState.auctionList.isNotEmpty()) {
+                    LazyColumn(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(paddingValues)
+                            .padding(horizontal = PaddingSmall, vertical = PaddingExtraSmall),
+                        verticalArrangement = Arrangement.spacedBy(PaddingSmall)
+                    ) {
+                        items(auctionListUIState.auctionList) { item ->
+                            AuctionListItem(item = item, navigateToDetails)
+                        }
+                    }
+                } else {
+                    EmptyScreen()
+                }
             }
+            auctionListUIState.errorMessage?.let { error ->
+                if (error.isNotEmpty()) {
+                    ErrorScreen(error, {
+                        // TODO: retry button
+                    })
+                }
+            }
+
         }
     }
 }
