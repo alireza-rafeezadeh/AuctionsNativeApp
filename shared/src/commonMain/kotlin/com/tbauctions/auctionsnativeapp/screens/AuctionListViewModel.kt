@@ -1,35 +1,56 @@
 package com.tbauctions.auctionsnativeapp.screens
 
-import com.tbauctions.auctionsnativeapp.data.AuctionListUIState
-import com.tbauctions.auctionsnativeapp.data.AuctionListRepository
-import com.tbauctions.auctionsnativeapp.data.AuctionModelItem
 import com.rickclephas.kmp.nativecoroutines.NativeCoroutinesState
 import com.rickclephas.kmp.observableviewmodel.ViewModel
-import com.rickclephas.kmp.observableviewmodel.launch
 import com.rickclephas.kmp.observableviewmodel.stateIn
-import kotlinx.coroutines.flow.MutableStateFlow
+import com.tbauctions.auctionsnativeapp.data.AuctionListRepository
+import com.tbauctions.auctionsnativeapp.data.AuctionListUIState
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
 
-class AuctionListViewModel(auctionListRepository: AuctionListRepository) : ViewModel() {
+class AuctionListViewModel(val auctionListRepository: AuctionListRepository) : ViewModel() {
+
     @NativeCoroutinesState
-    val auctionList: StateFlow<List<AuctionModelItem>> =
+    val auctionListUIState: StateFlow<AuctionListUIState> =
         auctionListRepository.getAuctionList()
+            .map { response ->
+                AuctionListUIState(
+                    isLoading = false,
+                    errorMessage = null,
+                    auctionList = response
+                )
+            }.onStart {
+                AuctionListUIState(
+                    isLoading = true,
+                )
+            }.catch { error ->
+                AuctionListUIState(
+                    isLoading = false,
+                    errorMessage = error.message,
+                )
+            }
             .stateIn(
                 viewModelScope,
                 SharingStarted.WhileSubscribed(5000),
-                emptyList()
+                AuctionListUIState()
             )
 
 
+    //    New stuff:
+    /*private val _auctionListUIState = MutableStateFlow(viewModelScope, AuctionListUIState())
 
-//    New stuff:
-    private val _auctionListUIState = MutableStateFlow(AuctionListUIState())
-    val auctionListUIState: StateFlow<AuctionListUIState> = _auctionListUIState
+    @NativeCoroutinesState
+    val auctionListUIState: StateFlow<AuctionListUIState> = _auctionListUIState.asStateFlow()
 
     init {
+        getAuctions()
+        print("gotcalled_tag")
+    }
+
+    fun getAuctions() {
         _auctionListUIState.update {
             AuctionListUIState(
                 isLoading = true,
@@ -41,7 +62,7 @@ class AuctionListViewModel(auctionListRepository: AuctionListRepository) : ViewM
                     isLoading = false,
                     errorMessage = error.message,
                 )
-            }.collect{ result ->
+            }.collect { result ->
                 _auctionListUIState.update {
                     AuctionListUIState(
                         isLoading = false,
@@ -51,5 +72,5 @@ class AuctionListViewModel(auctionListRepository: AuctionListRepository) : ViewM
                 }
             }
         }
-    }
+    }*/
 }

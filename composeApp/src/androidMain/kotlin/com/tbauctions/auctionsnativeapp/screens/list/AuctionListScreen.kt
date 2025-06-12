@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.rememberAsyncImagePainter
+import com.tbauctions.auctionsnativeapp.data.AuctionListUIState
 import com.tbauctions.auctionsnativeapp.data.AuctionModelItem
 import com.tbauctions.auctionsnativeapp.screens.AuctionListViewModel
 import java.time.format.DateTimeFormatter
@@ -42,7 +43,7 @@ fun AuctionListScreen(
     auctionViewModel: AuctionListViewModel,
     navigateToDetails: (objectId: Int) -> Unit
 ) {
-    val auctionList by auctionViewModel.auctionList.collectAsStateWithLifecycle()
+    val auctionList by auctionViewModel.auctionListUIState.collectAsStateWithLifecycle()
     Log.i("test_tg", "AuctionListScreen: ${auctionList}")
     AuctionList(auctionList, navigateToDetails)
 }
@@ -50,7 +51,7 @@ fun AuctionListScreen(
 @RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AuctionList(auctionItems: List<AuctionModelItem>, navigateToDetails: (objectId: Int) -> Unit) {
+fun AuctionList(auctionItems: AuctionListUIState, navigateToDetails: (objectId: Int) -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(title = { Text("Auction Listings") })
@@ -63,7 +64,7 @@ fun AuctionList(auctionItems: List<AuctionModelItem>, navigateToDetails: (object
                 .padding(horizontal = 8.dp, vertical = 4.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            items(auctionItems) { item ->
+            items(auctionItems.auctionList) { item ->
                 AuctionListItem(item = item, navigateToDetails)
             }
         }

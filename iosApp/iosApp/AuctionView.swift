@@ -26,7 +26,9 @@ struct AuctionView: View {
         NavigationView {
             ScrollView {
                 LazyVStack(spacing: 16) {
-                    ForEach(viewModel.auctionList, id: \.self) { item in
+//                    let sdfsf = viewModel.auctionListUIState.auctionList
+//                    let auctions = viewModel.getAuctions()
+                    ForEach(viewModel.auctionListUIState.auctionList, id: \.self) { item in
 //                        NavigationLink(destination: AuctionDetailView(objectId: item.id),)
                         NavigationLink(destination: AuctionDetailView(item: item), label: {
                             AuctionItemView(item: item)
