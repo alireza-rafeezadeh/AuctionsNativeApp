@@ -53,9 +53,7 @@ fun AuctionList(
             }
             auctionListUIState.errorMessage?.let { error ->
                 if (error.isNotEmpty()) {
-                    ErrorScreen(error, {
-                        // TODO: retry button
-                    })
+                    ErrorScreen(error)
                 }
             }
 
