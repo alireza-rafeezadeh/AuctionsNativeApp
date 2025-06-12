@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 
-class AuctionListViewModel(val auctionListRepository: AuctionListRepository) : ViewModel() {
+class AuctionListViewModel(auctionListRepository: AuctionListRepository) : ViewModel() {
 
     @NativeCoroutinesState
     val auctionListUIState: StateFlow<AuctionListUIState> =
