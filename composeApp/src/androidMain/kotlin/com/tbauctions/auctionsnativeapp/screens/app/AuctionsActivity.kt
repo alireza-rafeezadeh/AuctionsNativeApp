@@ -1,4 +1,4 @@
-package com.tbauctions.auctionsnativeapp
+package com.tbauctions.auctionsnativeapp.screens.app
 
 import android.os.Build
 import android.os.Bundle
