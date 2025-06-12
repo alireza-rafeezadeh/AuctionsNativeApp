@@ -1,9 +1,9 @@
 package com.tbauctions.auctionsnativeapp.di
 
 import com.tbauctions.auctionsnativeapp.data.AuctionAPI
+import com.tbauctions.auctionsnativeapp.data.AuctionAPIClient
 import com.tbauctions.auctionsnativeapp.data.AuctionListRepository
 import com.tbauctions.auctionsnativeapp.data.AuctionListRepositoryImpl
-import com.tbauctions.auctionsnativeapp.data.KtorAuctionAPI
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.http.ContentType
@@ -18,13 +18,12 @@ val dataModule = module {
         val json = Json { ignoreUnknownKeys = true }
         HttpClient {
             install(ContentNegotiation) {
-                // TODO Fix API so it serves application/json
                 json(json, contentType = ContentType.Any)
             }
         }
     }
 
-    single<AuctionAPI> { KtorAuctionAPI(get()) }
+    single<AuctionAPI> { AuctionAPIClient(get()) }
     single<AuctionListRepository> { AuctionListRepositoryImpl(get()) }
 }
 
