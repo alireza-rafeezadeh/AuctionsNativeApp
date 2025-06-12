@@ -34,6 +34,6 @@ class AuctionListViewModel(auctionListRepository: AuctionListRepository) : ViewM
             .stateIn(
                 viewModelScope,
                 SharingStarted.WhileSubscribed(5000),
-                AuctionListUIState()
+                AuctionListUIState(isLoading = true)
             )
 }
