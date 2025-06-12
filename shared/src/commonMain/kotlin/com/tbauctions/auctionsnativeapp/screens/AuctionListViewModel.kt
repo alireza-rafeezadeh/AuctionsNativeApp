@@ -19,7 +19,6 @@ class AuctionListViewModel(auctionListRepository: AuctionListRepository) : ViewM
             .map { response ->
                 AuctionListUIState(
                     isLoading = false,
-                    errorMessage = null,
                     auctionList = response
                 )
             }.onStart {
@@ -37,40 +36,4 @@ class AuctionListViewModel(auctionListRepository: AuctionListRepository) : ViewM
                 SharingStarted.WhileSubscribed(5000),
                 AuctionListUIState()
             )
-
-
-    //    New stuff:
-    /*private val _auctionListUIState = MutableStateFlow(viewModelScope, AuctionListUIState())
-
-    @NativeCoroutinesState
-    val auctionListUIState: StateFlow<AuctionListUIState> = _auctionListUIState.asStateFlow()
-
-    init {
-        getAuctions()
-        print("gotcalled_tag")
-    }
-
-    fun getAuctions() {
-        _auctionListUIState.update {
-            AuctionListUIState(
-                isLoading = true,
-            )
-        }
-        viewModelScope.launch {
-            auctionListRepository.getAuctionList().catch { error ->
-                AuctionListUIState(
-                    isLoading = false,
-                    errorMessage = error.message,
-                )
-            }.collect { result ->
-                _auctionListUIState.update {
-                    AuctionListUIState(
-                        isLoading = false,
-                        errorMessage = null,
-                        auctionList = result
-                    )
-                }
-            }
-        }
-    }*/
 }
