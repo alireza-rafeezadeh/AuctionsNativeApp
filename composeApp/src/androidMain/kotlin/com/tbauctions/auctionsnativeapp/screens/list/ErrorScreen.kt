@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import com.tbauctions.auctionsnativeapp.theme.Dimens.PaddingLarge
 import com.tbauctions.auctionsnativeapp.theme.Dimens.PaddingMedium
+import com.tbauctions.auctionsnativeapp.theme.Symbols
 
 @Composable
 fun ErrorScreen(
@@ -31,9 +32,8 @@ fun ErrorScreen(
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // A simple text-based icon replacement for multiplatform (no image dependency)
             Text(
-                text = "\u26A0", // Warning symbol ⚠
+                text = Symbols.warningSymbol,
                 style = MaterialTheme.typography.displayMedium,
                 color = Color.Red,
                 modifier = Modifier.padding(bottom = PaddingMedium)

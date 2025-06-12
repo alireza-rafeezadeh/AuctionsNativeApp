@@ -1,11 +1,3 @@
-//
-//  AuctionItemView.swift
-//  iosApp
-//
-//  Created by Alireza Rafeizadeh on 2025-06-09.
-//  Copyright © 2025 orgName. All rights reserved.
-//
-
 import SwiftUICore
 import SwiftUI
 import Shared
@@ -18,24 +10,7 @@ struct AuctionItemView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            if let url = URL(string: item.image?.thumbUrl ?? "") {
-//                AsyncImage(url: url) { phase in
-//                    switch phase {
-//                    case .empty:
-//                        ProgressView()
-//                            .frame(height: 200)
-//                    case .success(let image):
-//                        image
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fill)
-//                            .frame(height: 200)
-//                            .clipped()
-//                    case .failure:
-//                        Color.gray.frame(height: 200)
-//                    @unknown default:
-//                        EmptyView()
-//                    }
-//                }
+            if URL(string: item.image?.thumbUrl ?? "") != nil {
                 
                 KFImage(URL(string: item.image?.thumbUrl ?? ""))
                     .placeholder {
@@ -58,8 +33,6 @@ struct AuctionItemView: View {
                 .foregroundColor(.blue)
             
             Text("Ends: \(item.endDate)")
-            
-        
 
             Text("Location: \(item.municipalityName)")
                 .font(.caption)
@@ -68,15 +41,6 @@ struct AuctionItemView: View {
                 Text("Make: \(make)")
                     .font(.caption)
             }
-
-//            if let description = item.description {
-//            Text("Description: \(item.description)")
-//                    .font(.caption)
-//                    .lineLimit(3)
-            
-            // TODO: Why does this print the whole object?
-//            Text("Description: \(item.description)")
-
 
             Text("Reserve Price Status: \(item.reservePriceStatus.replacingOccurrences(of: "_", with: " ").lowercased())")
                 .font(.caption)
@@ -100,4 +64,31 @@ struct AuctionItemView: View {
             formatter.timeStyle = .medium
             return formatter
         }
+}
+
+
+struct AuctionItemView_Previews: PreviewProvider {
+    static var previews: some View {
+        let sampleItem = AuctionModelItem(
+            id: 101,
+            name: "Excavator ZX200",
+            make: "Hitachi",
+            description: "A powerful excavator, ideal for heavy construction work.",
+            currentBid: 150000,
+            endDate: "2025-12-31T23:59:00Z",
+            reservePriceStatus: "REACHED",
+            municipalityName: "Gothenburg",
+            image: ImageUrls(
+                thumbUrl: "https://via.placeholder.com/300x200",
+                largeUrl: "https://via.placeholder.com/600x400"
+            ),
+            categoryLevel1: 1,
+            categoryLevel2: 2,
+            categoryLevel3: nil
+        )
+
+        AuctionItemView(item: sampleItem)
+            .previewLayout(.sizeThatFits)
+            .padding()
+    }
 }

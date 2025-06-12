@@ -28,6 +28,7 @@ class AuctionListViewModel(auctionListRepository: AuctionListRepository) : ViewM
             }.catch { error ->
                 AuctionListUIState(
                     isLoading = false,
+                    hasError = true,
                     errorMessage = error.message,
                 )
             }

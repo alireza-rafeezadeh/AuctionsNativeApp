@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -18,20 +19,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.rememberAsyncImagePainter
 import com.tbauctions.auctionsnativeapp.screens.AuctionListViewModel
+import com.tbauctions.auctionsnativeapp.theme.Dimens
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AuctionDetailScreen(
     auctionViewModel: AuctionListViewModel,
-    objectId: Int,
-    navigateBack: () -> Unit
+    auctionId: Int,
 ) {
 
     Scaffold(
@@ -47,9 +45,9 @@ fun AuctionDetailScreen(
                 modifier = Modifier
                     .fillMaxSize()
                     .verticalScroll(rememberScrollState())
-                    .padding(16.dp)
+                    .padding(Dimens.PaddingMedium)
             ) {
-                val item = auctionList.auctionList.firstOrNull { it.id == objectId }
+                val item = auctionList.auctionList.firstOrNull { it.id == auctionId }
 
                 item?.image?.largeUrl?.let { url ->
                     Image(
@@ -57,27 +55,26 @@ fun AuctionDetailScreen(
                         contentDescription = "Image of ${item.name}",
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(400.dp),
+                            .height(Dimens.CardImageHeight),
                         contentScale = ContentScale.Crop
                     )
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(Dimens.PaddingMedium))
                 }
 
                 Text(
                     "Name: ${auctionList.auctionList[0].name}",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 20.sp
+                    style = MaterialTheme.typography.bodyLarge
                 )
-                Text("Make: ${item?.make ?: "Unknown"}", fontSize = 16.sp)
-                Text("Description: ${item?.description ?: "No description"}", fontSize = 16.sp)
-                Text("Current Bid: $${item?.currentBid}", fontSize = 16.sp)
-                Text("End Date: ${item?.endDate}", fontSize = 16.sp)
-                Text("Reserve Status: ${item?.reservePriceStatus}", fontSize = 16.sp)
-                Text("Municipality: ${item?.municipalityName}", fontSize = 16.sp)
-                Spacer(modifier = Modifier.height(8.dp))
-                Text("Category L1: ${item?.categoryLevel1}", fontSize = 14.sp)
-                Text("Category L2: ${item?.categoryLevel2}", fontSize = 14.sp)
-                Text("Category L3: ${item?.categoryLevel3 ?: "N/A"}", fontSize = 14.sp)
+                Text("Make: ${item?.make ?: "Unknown"}", style = MaterialTheme.typography.bodyMedium)
+                Text("Description: ${item?.description ?: "No description"}", style = MaterialTheme.typography.bodyMedium)
+                Text("Current Bid: $${item?.currentBid}", style = MaterialTheme.typography.bodyMedium)
+                Text("End Date: ${item?.endDate}", style = MaterialTheme.typography.bodyMedium)
+                Text("Reserve Status: ${item?.reservePriceStatus}", style = MaterialTheme.typography.bodyMedium)
+                Text("Municipality: ${item?.municipalityName}", style = MaterialTheme.typography.bodyMedium)
+                Spacer(modifier = Modifier.height(Dimens.PaddingSmall))
+                Text("Category L1: ${item?.categoryLevel1}", style = MaterialTheme.typography.bodySmall)
+                Text("Category L2: ${item?.categoryLevel2}", style = MaterialTheme.typography.bodySmall)
+                Text("Category L3: ${item?.categoryLevel3 ?: "N/A"}", style = MaterialTheme.typography.bodySmall)
             }
         }
     }

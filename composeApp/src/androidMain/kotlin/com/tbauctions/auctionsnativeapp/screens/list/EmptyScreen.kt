@@ -31,9 +31,8 @@ fun EmptyScreen(
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Optional Emoji instead of an icon
             Text(
-                text = "\uD83D\uDCCB", // Clipboard emoji
+                text = "\uD83D\uDCCB",
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(bottom = PaddingMedium)
             )

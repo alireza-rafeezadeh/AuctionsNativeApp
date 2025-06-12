@@ -19,7 +19,6 @@ import com.tbauctions.auctionsnativeapp.screens.details.AuctionDetailScreen
 import com.tbauctions.auctionsnativeapp.screens.list.AuctionListScreen
 import org.koin.compose.viewmodel.koinViewModel
 
-
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun App() {
@@ -39,10 +38,7 @@ fun App() {
 
                 composable<AuctionDetail> { backStackEntry ->
                     AuctionDetailScreen(auctionViewModel,
-                        objectId = backStackEntry.toRoute<AuctionDetail>().objectId,
-                        navigateBack = {
-                            navController.popBackStack()
-                        }
+                        auctionId = backStackEntry.toRoute<AuctionDetail>().objectId,
                     )
                 }
             }

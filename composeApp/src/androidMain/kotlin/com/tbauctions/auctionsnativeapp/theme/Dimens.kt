@@ -12,7 +12,7 @@ object Dimens {
     val PaddingExtraLarge = 32.dp
 
     // Heights
-    val CardImageHeight = 200.dp
+    val CardImageHeight = 400.dp
     val SpacerHeightSmall = 4.dp
     val SpacerHeightMedium = 8.dp
     val SpacerHeightLarge = 24.dp

@@ -1,11 +1,3 @@
-//
-//  AuctionsDetailsVuew.swift
-//  iosApp
-//
-//  Created by Alireza Rafeizadeh on 2025-06-11.
-//  Copyright © 2025 orgName. All rights reserved.
-//
-
 import SwiftUI
 import Shared
 import KMPNativeCoroutinesAsync
@@ -15,23 +7,13 @@ import Kingfisher
 
 struct AuctionDetailView: View {
 
-//    let objectId: Int32
-//    @StateViewModel
-//    var viewModel = AuctionListViewModel(
-//        auctionListRepository: KoinDependencies().auctionRepository
-//    )
-
     var item: AuctionModelItem?
-//    ? {
-//        viewModel.auctionList.first { $0.id == objectId }
-//    }
 
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     if let item = item {
-//                        AuctionImageView(imageUrl: item.image.largeUrl)
                         KFImage(URL(string: item.image?.largeUrl ?? ""))
                             .placeholder {
                                 ProgressView().frame(height: 200)
@@ -44,38 +26,47 @@ struct AuctionDetailView: View {
                             .frame(height: 200)
                             .clipped()
                         
-                        
-//                        AuctionMainDetailsView(item: item)
-                        
-                        
                         VStack(alignment: .leading, spacing: 8) {
                                     Text("Name: \(item.name)")
                                         .font(.title2)
                                         .fontWeight(.bold)
 
                                     Text("Make: \(item.make ?? "Unknown")")
-                                    Text("Description: \(item.description ?? "No description")")
                                     Text("Current Bid: $\(item.currentBid)")
                                     Text("End Date: \(item.endDate)")
                                     Text("Reserve Status: \(item.reservePriceStatus)")
                                     Text("Municipality: \(item.municipalityName)")
                                 }
                                 .font(.body)
-
                         Divider().padding(.vertical, 8)
-
-//                        AuctionCategoryView(item: item)
                     }
                 }
                 .padding()
             }
-            .navigationTitle("Auction Listings")
         }
     }
 }
 
 struct AuctionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-//        AuctionDetailView(auctionList: <#[AuctionModelItem]#>, objectId: 2)
+        let sampleItem = AuctionModelItem(
+            id: 1,
+            name: "Vintage Car",
+            make: "Ford",
+            description: "A classic 1965 Ford Mustang in excellent condition.",
+            currentBid: 25000,
+            endDate: "2025-12-01",
+            reservePriceStatus: "Met",
+            municipalityName: "Springfield",
+            image: ImageUrls(
+                thumbUrl: "https://via.placeholder.com/150",
+                largeUrl: "https://via.placeholder.com/600x400"
+            ),
+            categoryLevel1: 10,
+            categoryLevel2: 20,
+            categoryLevel3: 30
+        )
+
+        AuctionDetailView(item: sampleItem)
     }
 }

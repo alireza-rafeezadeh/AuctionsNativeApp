@@ -1,32 +1,41 @@
-# Kotlin Multiplatform app template
+# Auctiona Native App
 
-[![official project](http://jb.gg/badges/official.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+This is a Kotlin Multiplatform (KMP) project targeting **Android** and **iOS** showing a list of auctions and their details.
 
-This is a basic Kotlin Multiplatform app template for Android and iOS. It includes shared business logic and data handling, and native UI implementations using Jetpack Compose and SwiftUI.
+---
 
-> The template is also available [with shared UI written in Compose Multiplatform](https://github.com/kotlin/KMP-App-Template).
->
-> The [`amper` branch](https://github.com/Kotlin/KMP-App-Template-Native/tree/amper) showcases the same project configured with [Amper](https://github.com/JetBrains/amper).
+## ✨ Tech Stack
 
-![Screenshots of the app](images/screenshots.png)
+### ✅ Shared (KMP)
 
-### Technologies
+- [**Ktor**](https://ktor.io/): HTTP client for networking across platforms.
+- [**kotlinx.serialization**](https://github.com/Kotlin/kotlinx.serialization): For parsing and generating JSON.
+- [**Koin**](https://github.com/InsertKoinIO/koin): Dependency injection made easy and multiplatform.
+- [**KMP-ObservableViewModel**](https://github.com/rickclephas/KMP-ObservableViewModel): Shared ViewModel architecture usable with SwiftUI and Jetpack Compose.
+- [**KMP-NativeCoroutines**](https://github.com/rickclephas/KMP-NativeCoroutines): Enables Swift concurrency support for Kotlin coroutines.
 
-The data displayed by the app is from [The Metropolitan Museum of Art Collection API](https://metmuseum.github.io/).
+> ⚠️ These are just some of the possible libraries to use for these tasks with Kotlin Multiplatform, and their usage here isn't a strong recommendation for these specific libraries over the available alternatives. You can find a wide variety of curated multiplatform libraries in the [kmp-awesome](https://github.com/terrakok/kmp-awesome) repository.
 
-The app uses the following multiplatform dependencies in its implementation:
+---
 
-- [Ktor](https://ktor.io/) for networking
-- [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) for JSON handling
-- [Koin](https://github.com/InsertKoinIO/koin) for dependency injection
-- [KMP-ObservableViewModel](https://github.com/rickclephas/KMP-ObservableViewModel) for shared ViewModel implementations in common code
-- [KMP-NativeCoroutines](https://github.com/rickclephas/KMP-NativeCoroutines)
+### 📱 Android
 
-> These are just some of the possible libraries to use for these tasks with Kotlin Multiplatform, and their usage here isn't a strong recommendation for these specific libraries over the available alternatives. You can find a wide variety of curated multiplatform libraries in the [kmp-awesome](https://github.com/terrakok/kmp-awesome) repository.
+- [**Jetpack Compose**](https://developer.android.com/jetpack/compose): Modern declarative UI toolkit for Android.
+- [**Navigation component**](https://developer.android.com/jetpack/compose/navigation): Declarative navigation in Jetpack Compose.
+- [**Coil**](https://github.com/coil-kt/coil): Image loading library optimized for Android and Jetpack Compose.
 
-And the following Android-specific dependencies:
+---
 
-- [Jetpack Compose](https://developer.android.com/jetpack/compose)
-- [Navigation component](https://developer.android.com/jetpack/compose/navigation)
-- [Coil](https://github.com/coil-kt/coil) for image loading
+### 🍏 iOS
+
+- [**Kingfisher**](https://github.com/onevcat/Kingfisher): Swift library for downloading and caching images in iOS.
+
+---
+
+## 🔐 API Key Configuration
+
+To run the app, make sure to add your `AUCTIONS_API_KEY`:
+
+- **Android**: Add to your `local.properties` file:
+  ```properties
+  AUCTIONS_API_KEY=your_api_key_here
