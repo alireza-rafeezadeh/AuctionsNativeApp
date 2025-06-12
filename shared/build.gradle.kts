@@ -1,5 +1,7 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.io.FileInputStream
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -8,6 +10,19 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.kmpNativeCoroutines)
 }
+
+val prop = Properties().apply {
+    load(FileInputStream(File(rootProject.rootDir, "local.properties")))
+}
+
+val localProperties = prop.apply {
+    val localPropertiesFile = rootProject.file("local.properties")
+    if (localPropertiesFile.exists()) {
+        localPropertiesFile.inputStream().use { load(it) }
+    }
+}
+
+val auctionsApiKey = localProperties.getProperty("AUCTIONS_API_KEY") ?: ""
 
 kotlin {
     androidTarget {
@@ -60,5 +75,9 @@ android {
     }
     defaultConfig {
         minSdk = 24
+        buildConfigField("String", "AUCTIONS_API_KEY", "\"$auctionsApiKey\"")
+    }
+    buildFeatures {
+        buildConfig = true
     }
 }

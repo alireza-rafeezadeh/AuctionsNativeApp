@@ -1,3 +1,3 @@
 package com.tbauctions.auctionsnativeapp.data
 
-//expect val AuctionsApiKey: String
+expect val AuctionsApiKey: String

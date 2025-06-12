@@ -33,6 +33,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>AUCTIONS_API_KEY</key>
+	<string>97uionf98y34oiuh3498pfy34hf43hfp9834hf9p83h4fg8ogq3hfph9348ofhiu</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

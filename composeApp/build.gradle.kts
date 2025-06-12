@@ -1,7 +1,6 @@
+
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import java.io.FileInputStream
-import java.util.Properties
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -42,19 +41,6 @@ kotlin {
     }
 }
 
-val prop = Properties().apply {
-    load(FileInputStream(File(rootProject.rootDir, "local.properties")))
-}
-
-val localProperties = prop.apply {
-    val localPropertiesFile = rootProject.file("local.properties")
-    if (localPropertiesFile.exists()) {
-        localPropertiesFile.inputStream().use { load(it) }
-    }
-}
-
-val auctionsApiKey = localProperties.getProperty("AUCTIONS_API_KEY") ?: ""
-
 android {
     namespace = "com.tbauctions.auctionsnativeapp"
     compileSdk = 35
@@ -65,8 +51,6 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-        buildConfigField("String", "AUCTIONS_API_KEY", "\"$auctionsApiKey\"")
-
     }
     packaging {
         resources {
@@ -81,9 +65,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-    buildFeatures {
-        buildConfig = true
     }
 }
 
